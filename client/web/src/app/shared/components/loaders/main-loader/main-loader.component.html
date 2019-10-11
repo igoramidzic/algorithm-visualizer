@@ -1,0 +1,17 @@
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'primary'" class="sk-fading-circle">
+    <div *ngFor="let item of items" [class]="item + ' sk-circle primary'"></div>
+  </div>
+  <div *ngSwitchCase="'secondary'" class="sk-fading-circle">
+    <div *ngFor="let item of items" [class]="item + ' sk-circle secondary'"></div>
+  </div>
+  <div *ngSwitchCase="'green'" class="sk-fading-circle">
+    <div *ngFor="let item of items" [class]="item + ' sk-circle green'"></div>
+  </div>
+  <div *ngSwitchCase="'red'" class="sk-fading-circle">
+    <div *ngFor="let item of items" [class]="item + ' sk-circle red'"></div>
+  </div>
+  <div *ngSwitchDefault class="sk-fading-circle">
+    <div *ngFor="let item of items" [class]="item + ' sk-circle'"></div>
+  </div>
+</div>

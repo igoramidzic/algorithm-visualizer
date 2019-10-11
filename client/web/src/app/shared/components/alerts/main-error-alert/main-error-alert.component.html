@@ -1,0 +1,6 @@
+<div class="alert p-0" *ngIf="errors && errors.length > 0">
+  <span class="alert-message red" *ngFor="let error of errors">
+    <span style="vertical-align:middle;"><i class="fas fa-exclamation-circle alert-icon"></i></span>
+    <span class="message-content" style="vertical-align:middle;">{{ error}}</span>
+  </span>
+</div>

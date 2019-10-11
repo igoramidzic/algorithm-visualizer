@@ -1,0 +1,245 @@
+$colors: ("yellow": #fce137,
+  "blue": #4a9fff,
+  "green": #2bd0ba,
+  "red": #d14128);
+
+$content-width: 1054px;
+
+@mixin default-theme {
+  --background: white;
+  --button-text-color: white;
+  --text-color: #171718;
+  --input-background: #fafafa;
+  --input-border: #cbcbcd;
+  --input-placeholder: #cbcbcd;
+  --input-background-hover: var(--background);
+  --primary-color: #4a9fff;
+  --secondary-color: #fce137;
+  --success-color: #2bd0ba;
+  --danger-color: #d14128;
+  --border-color: #f2f2f2;
+  --background-hover: #f2f2f2;
+  --hint-color: #8c8c8e;
+  --box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(42, 46, 46, 0.09);
+  transition: all 0.25s ease;
+}
+
+.main-theme {
+  @include default-theme;
+}
+
+// .theme-closed {
+//   --background: #1b1b1d;
+//   --button-text-color: #1b1b1d;
+//   --text-color: white;
+//   --input-background: #131314;
+//   --input-border: #8c8c8e;
+//   --input-placeholder: #858587;
+//   --input-background-hover: #131314;
+//   --primary-color: #fce137;
+//   --secondary-color: #24759e;
+//   --success-color: #2bd0ba;
+//   --danger-color: #d14128;
+//   --border-color: #0E0D18;
+//   --background-hover: #131314;
+//   --hint-color: #8c8c8e;
+//   --box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(0, 0, 0, 0.6);
+//   transition: all 0.25s ease;
+// }
+
+:root {
+
+  @each $name,
+  $color in $colors {
+    --#{$name}: #{$color};
+    --#{$name}-dark: #{darken($color, 7%)};
+    --#{$name}-light: #{lighten($color, 7%)};
+  }
+
+  --font-body: 'Roboto',
+  sans-serif;
+  --font-head: 'ratio',
+  sans-serif; // effra erbaum
+  --font-size: 13px;
+
+
+  @include default-theme;
+}
+
+.hint {
+  color: var(--hint-color);
+  font-weight: 400;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size);
+  letter-spacing: .5px;
+  font-weight: 500;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+}
+
+a.no-highlight {
+  &:hover {
+    color: var(--text-color);
+
+  }
+}
+
+.hover:hover {
+  transition: .25s ease;
+  background-color: var(--background-hover);
+
+  .list-group-item {
+    background-color: var(--background-hover);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // color: var(--h-color);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+p.description {
+  font-size: 15px;
+}
+
+i {
+  svg {
+    position: relative;
+    width: 1em;
+    margin: 0 3px;
+    top: 0.125em;
+  }
+}
+
+.zero-top {
+  svg {
+    top: 0;
+  }
+}
+
+.border-right {
+  border-color: var(--border-color) !important;
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.primary-bg {
+  background-color: var(--primary-color);
+}
+
+.secondary-bg {
+  background-color: var(--secondary-color);
+}
+
+.danger {
+  color: var(--danger-color);
+}
+
+.danger-bg {
+  background-color: var(--danger-color);
+}
+
+.green {
+  color: var(--success-color);
+}
+
+.green-bg {
+  background-color: var(--success-color);
+}
+
+.red {
+  color: var(--danger-color);
+}
+
+.red-bg {
+  background-color: var(--danger-color);
+}
+
+.hover-bg {
+  background-color: var(--background-hover);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 250px;
+  margin-top: 120px;
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+hr {
+  // margin: 15px 0;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--border-color);
+}
+
+li {
+  padding: 0.5em 0;
+}
+
+
+blockquote {
+  position: relative;
+  padding-left: 1em;
+  border-left: var(--nav-bg) 3px dashed;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+// Color Utilities
+
+@each $name,
+$color in $colors {
+  .#{$name} {
+    color: $color;
+  }
+
+  .#{$name}-bg {
+    background: $color;
+  }
+}
+
+// Random Stuff
+
+::selection {
+  background: var(--blue);
+  color: white;
+}

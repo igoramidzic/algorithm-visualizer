@@ -1,0 +1,30 @@
+.alert {
+  position: relative;
+  padding: 12px 0;
+  border-radius: 4px;
+
+  .alert-message {
+    display: block;
+    position: relative;
+  }
+
+  .alert-icon {
+    font-size: 1.1rem;
+    margin-right: 6px;
+  }
+
+  .message-content {
+    position: relative;
+    top: -1.5px;
+  }
+}
+
+.alert-success {
+  background-color: map-get($colors, "light-green");
+  border: 1px solid map-get($colors, "green");
+}
+
+.alert-danger {
+  background-color: map-get($colors, "light-red");
+  border: 1px solid map-get($colors, "red");
+}

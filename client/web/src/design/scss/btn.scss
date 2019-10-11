@@ -1,0 +1,143 @@
+@mixin btn-color($color) {
+  background: $color;
+  border: 1px solid $color;
+
+  // &:hover {
+  //   background: green;
+  //   border-color: red;
+  // }
+}
+
+@mixin btn-outline-color($color) {
+  background: var(--background);
+  border: 1px solid $color;
+  color: $color;
+
+  // &:hover {
+  //   // color: lighten($color, 10%);
+  //   border-color: lighten(map-get($colors, "green"), 10%);
+  // }
+}
+
+.btn {
+  height: 36px;
+  outline: none;
+  @include btn-color(var(--hint-color));
+  color: var(--button-text-color);
+  font-size: 1em;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-radius: 3px;
+  vertical-align: bottom;
+  cursor: pointer;
+  min-width: 120px;
+
+  svg {
+    height: 1.3em;
+    margin: 0 0.3em;
+  }
+
+  &:hover {}
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.8 !important;
+  cursor: default;
+}
+
+.btn-block {
+  // display: block;
+  width: 100%;
+
+  img,
+  svg {
+    top: 5px;
+    position: relative;
+  }
+}
+
+.btn-sm {
+  min-width: 0;
+}
+
+.btn-lg {
+  height: 48px;
+}
+
+.btn-underline {
+  height: 36px;
+  outline: none;
+  color: var(--text-color);
+  font-size: 1em;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  // justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  vertical-align: bottom;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-underline.active {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary {
+  @include btn-color(var(--primary-color));
+}
+
+.btn-secondary {
+  @include btn-color(var(--secondary-color));
+}
+
+.btn-success {
+  @include btn-color(map-get($colors, "green"));
+}
+
+.btn-danger {
+  @include btn-color(map-get($colors, "red"));
+}
+
+.btn-outline {
+  @include btn-outline-color(var(--hint-color));
+}
+
+.btn-primary.btn-outline {
+  @include btn-outline-color(var(--primary-color));
+}
+
+.btn-secondary.btn-outline {
+  @include btn-outline-color(var(--secondary-color));
+}
+
+.btn-success.btn-outline {
+  @include btn-outline-color(map-get($colors, "green"));
+}
+
+.btn-danger.btn-outline {
+  @include btn-outline-color(map-get($colors, "red"));
+}
