@@ -1,1 +1,15 @@
-<p>searching works!</p>
+<div *ngIf="algorithm == SearchingAlgorithm.Astar">
+  A*
+</div>
+
+<div *ngIf="algorithm == SearchingAlgorithm.BFS">
+  Breadth First Search
+</div>
+
+<div *ngIf="algorithm == SearchingAlgorithm.DFS">
+  Depth First Search
+</div>
+
+<div *ngIf="algorithm == SearchingAlgorithm.Dijkstras">
+  Dijkstra's
+</div>

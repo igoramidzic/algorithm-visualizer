@@ -1,1 +1,15 @@
-<p>sorting works!</p>
+<div *ngIf="algorithm == SortingAlgorithm.InsertionSort">
+  Insertion Sort
+</div>
+
+<div *ngIf="algorithm == SortingAlgorithm.MergeSort">
+  Merge Sort
+</div>
+
+<div *ngIf="algorithm == SortingAlgorithm.QuickSort">
+  QuickSort
+</div>
+
+<div *ngIf="algorithm == SortingAlgorithm.SelectionSort">
+  Selection Sort
+</div>

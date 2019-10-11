@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SortingAlgorithm } from 'src/app/core/models/algorithm/algorithm';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sorting',
@@ -10,13 +10,35 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class SortingComponent implements OnInit {
 
   algorithm: SortingAlgorithm;
+  SortingAlgorithm = SortingAlgorithm;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      console.log(params);
+      this.setAlgorithm(params.algorithm);
     })
+  }
+
+  setAlgorithm(algorithmName: string): void {
+    switch (algorithmName) {
+      case 'insertionsort':
+        this.algorithm = SortingAlgorithm.InsertionSort;
+        break;
+      case 'mergesort':
+        this.algorithm = SortingAlgorithm.MergeSort;
+        break;
+      case 'quicksort':
+        this.algorithm = SortingAlgorithm.QuickSort;
+        break;
+      case 'selectionsort':
+        this.algorithm = SortingAlgorithm.SelectionSort;
+        break;
+      default:
+        this.algorithm = null;
+        this.router.navigate(['/'])
+        break;
+    }
   }
 
 }
