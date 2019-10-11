@@ -1,1 +1,1 @@
-# Batman Web Client
+# Algorithm Visualizer Web Client

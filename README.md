@@ -1,1 +1,1 @@
-# Batman Stock Trading App
+# Algorithm Visualizer
