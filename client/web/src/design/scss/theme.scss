@@ -19,6 +19,7 @@ $content-width: 1054px;
   --danger-color: #d14128;
   --border-color: #f2f2f2;
   --background-hover: #f2f2f2;
+  --background-hover-darker: #e4e3e3;
   --hint-color: #8c8c8e;
   --box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.01), 0 3px 24px rgba(42, 46, 46, 0.09);
   transition: all 0.25s ease;
@@ -60,7 +61,7 @@ $content-width: 1054px;
   sans-serif;
   --font-head: 'ratio',
   sans-serif; // effra erbaum
-  --font-size: 13px;
+  --font-size: 14px;
 
 
   @include default-theme;

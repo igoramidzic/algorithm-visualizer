@@ -5,7 +5,7 @@ export enum SortingAlgorithm {
     SelectionSort = 4
 }
 
-export enum SearchingAlgorithm {
+export enum PathfindingAlgorithm {
     Astar = 1,
     BFS = 2,
     DFS = 3,

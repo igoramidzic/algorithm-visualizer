@@ -1,12 +1,10 @@
 .my-navbar {
   background-color: var(--background);
-  // position: sticky;
   transition: all 0.25s ease;
-  // height: 64px;
 
   .navbar {
     background-color: var(--background);
-    height: 64px;
+    height: 52px;
     margin: auto;
   }
 
@@ -38,13 +36,12 @@
       margin: 0;
       padding: 0;
 
-      .nav-item:not(:first-child) {
-        margin-left: 33px;
-      }
-
       .nav-item .nav-link {
         white-space: nowrap;
-        padding: 6px 0;
+      }
+
+      .nav-item {
+        padding: 0;
       }
     }
   }

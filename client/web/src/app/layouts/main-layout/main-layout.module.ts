@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MAINLAYOUT_ROUTES } from './main-layout.routes';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SearchingComponent } from './searching/searching.component';
 import { SortingComponent } from './sorting/sorting.component';
+import { PathfindingComponent } from './pathfinding/pathfinding.component';
 
 @NgModule({
   declarations: [
-    SearchingComponent,
+    PathfindingComponent,
     SortingComponent
   ],
   imports: [

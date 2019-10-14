@@ -41,4 +41,21 @@ export class SortingComponent implements OnInit {
     }
   }
 
+  get algorithmName(): string {
+    switch (this.algorithm) {
+      case SortingAlgorithm.InsertionSort:
+        return "Insertion Sort"
+      case SortingAlgorithm.MergeSort:
+        return "Merge Sort"
+      case SortingAlgorithm.QuickSort:
+        return "QuickSort"
+      case SortingAlgorithm.SelectionSort:
+        return "Selection Sort"
+      default:
+        this.algorithm = null;
+        this.router.navigate(['/'])
+        break;
+    }
+  }
+
 }

@@ -1,18 +1,17 @@
 import { Routes } from '@angular/router';
-import { SortingComponent } from './sorting/sorting.component';
-import { SearchingComponent } from './searching/searching.component';
+import { PathfindingComponent } from './pathfinding/pathfinding.component';
 
 export const MAINLAYOUT_ROUTES: Routes = [
+  // {
+  //   path: 'sorting/:algorithm',
+  //   component: SortingComponent
+  // },
   {
-    path: 'sorting/:algorithm',
-    component: SortingComponent
-  },
-  {
-    path: 'searching/:algorithm',
-    component: SearchingComponent
+    path: 'pathfinding/:algorithm',
+    component: PathfindingComponent
   },
   {
     path: '**',
-    redirectTo: 'sorting/insertionsort'
+    redirectTo: 'pathfinding/astar'
   }
 ]

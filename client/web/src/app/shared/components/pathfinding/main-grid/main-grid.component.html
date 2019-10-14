@@ -1,0 +1,10 @@
+<table class="border mx-auto">
+  <tr *ngFor="let nodes of grid">
+    <td *ngFor="let node of nodes" class="p-0">
+      <app-grid-node [node]="node" [mouseDownOnType]="mouseDownOnType" (mouseDownFromNode)="mouseDown($event)"
+        (toNodeEmitter)="toNodeChange($event)" (fromNodeEmitter)="fromNodeChange($event)"
+        (changeNodeEmitter)="changeNodeType()">
+      </app-grid-node>
+    </td>
+  </tr>
+</table>

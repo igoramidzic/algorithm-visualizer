@@ -9,7 +9,10 @@ import { MainErrorAlertComponent } from './components/alerts/main-error-alert/ma
 import { MainLoaderComponent } from './components/loaders/main-loader/main-loader.component';
 import { MainNavbarComponent } from './components/navbars/main-navbar/main-navbar.component';
 import { SortingMenuComponent } from './components/navbars/main-navbar/sorting-menu/sorting-menu.component';
-import { SearchingMenuComponent } from './components/navbars/main-navbar/searching-menu/searching-menu.component';
+import { PathfindingMenuComponent } from './components/navbars/main-navbar/pathfinding-menu/pathginding-menu.component';
+import { PathfindingNavbarComponent } from './components/navbars/pathfinding-navbar/pathfinding-navbar.component';
+import { MainGridComponent } from './components/pathfinding/main-grid/main-grid.component';
+import { GridNodeComponent } from './components/pathfinding/grid-node/grid-node.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,11 @@ import { SearchingMenuComponent } from './components/navbars/main-navbar/searchi
     MainLoaderComponent,
     MainNavbarComponent,
     SortingMenuComponent,
-    SearchingMenuComponent],
+    PathfindingMenuComponent,
+    PathfindingNavbarComponent,
+    MainGridComponent,
+    GridNodeComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -34,7 +41,11 @@ import { SearchingMenuComponent } from './components/navbars/main-navbar/searchi
     MainErrorAlertComponent,
     MainLoaderComponent,
     MainNavbarComponent,
-    SortingMenuComponent
+    SortingMenuComponent,
+    PathfindingMenuComponent,
+    PathfindingNavbarComponent,
+    MainGridComponent,
+    GridNodeComponent
   ],
   providers: [],
   entryComponents: []

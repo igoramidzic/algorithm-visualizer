@@ -1,0 +1,18 @@
+<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">
+  Path Finding <i class="ml-2 fas fa-angle-down"></i>
+</a>
+<div class="main-theme dropdown-menu dropdown-menu-right" style="width: 248px;">
+  <a [routerLink]="['/pathfinding/astar']" class="dropdown-item dropdown-item-account">
+    A*
+  </a>
+  <a [routerLink]="['/pathfinding/bfs']" class="dropdown-item dropdown-item-account">
+    Breadth First Search
+  </a>
+  <a [routerLink]="['/pathfinding/dfs']" class="dropdown-item dropdown-item-account">
+    Depth First Search
+  </a>
+  <a [routerLink]="['/pathfinding/dijkstras']" class="dropdown-item dropdown-item-account">
+    Dijkstra's
+  </a>
+</div>

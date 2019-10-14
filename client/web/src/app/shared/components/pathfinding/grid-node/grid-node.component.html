@@ -1,0 +1,3 @@
+<div class="node"
+  [ngClass]="{'wall': node.type == NodeType.Wall, 'start': node.type == NodeType.Start, 'end': node.type == NodeType.End }"
+  (mousedown)="mouseDown()" (mouseup)="mouseUp()" (mouseenter)="mouseEnter();"></div>
