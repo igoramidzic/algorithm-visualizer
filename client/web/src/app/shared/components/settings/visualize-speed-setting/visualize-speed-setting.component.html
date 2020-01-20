@@ -1,0 +1,11 @@
+<div class="text-center">
+  <span class="font-weight-light" style="font-size: 14px;">Speed</span>
+  <div class="d-flex align-items-center justify-content-between">
+    <input [disabled]="isPlaying" type="range" step="1" [min]="settings.minVisualizeSpeed"
+      [max]="settings.maxVisualizeSpeed" class="reverse-range form-control-range mr-1" id="formControlRange"
+      [(ngModel)]="settings.visualizeSpeed">
+    <span class="hint" style="min-width: 70px;">
+      {{ 1000 / (settings.visualizeSpeed == 0 ? 1 : settings.visualizeSpeed) | number:'1.0-0' }}/sec
+    </span>
+  </div>
+</div>

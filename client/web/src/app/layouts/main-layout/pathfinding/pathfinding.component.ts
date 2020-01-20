@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PathfindingAlgorithm } from 'src/app/core/models/algorithm/algorithm';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { GridNode, NodeType } from 'src/app/core/models/pathfinding/node/node';
 import { AlgorithmService } from 'src/app/services/algorithm/algorithm.service';
+import { PathFindingSettings } from 'src/app/core/models/pathFindingSettings/pathFindingSettings';
 
 @Component({
   selector: 'app-pathfinding',
@@ -18,6 +19,11 @@ export class PathfindingComponent implements OnInit {
   isPlaying: boolean;
   gridX: number = 40;
   gridY: number = 20;
+  settings: PathFindingSettings = {
+    visualizeSpeed: 10,
+    minVisualizeSpeed: 0,
+    maxVisualizeSpeed: 50
+  }
 
   constructor(private route: ActivatedRoute, private router: Router,
     private algorithmService: AlgorithmService) { }
@@ -114,7 +120,7 @@ export class PathfindingComponent implements OnInit {
     for (let i = 0; i < visited.length; i++) {
       setTimeout(() => {
         visited[i].visited = true;
-      }, 10 * i);
+      }, this.settings.visualizeSpeed * i);
       k++;
     }
 
@@ -124,7 +130,7 @@ export class PathfindingComponent implements OnInit {
 
         if (j == path.length - 1)
           this.isPlaying = false;
-      }, 10 * (k + j) + 250);
+      }, this.settings.visualizeSpeed * (k + j) + 250);
     }
   }
 

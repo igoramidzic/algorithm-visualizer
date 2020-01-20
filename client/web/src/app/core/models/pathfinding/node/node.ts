@@ -1,6 +1,7 @@
 export type GridNode = {
-    type: NodeType,
-    visited: boolean,
+    type: NodeType;
+    visited: boolean;
+    isVisited?: boolean;
     isPath: boolean;
     wasAlreadyChanged?: boolean;
     bottom?: GridNode;
@@ -8,7 +9,6 @@ export type GridNode = {
     left?: GridNode;
     right?: GridNode;
     distance?: number;
-    isVisited?: boolean;
     adjacencyList?: GridNode[];
 }
 

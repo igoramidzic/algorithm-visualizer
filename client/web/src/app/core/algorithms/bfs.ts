@@ -4,27 +4,41 @@ export const bfs = (startNode: GridNode, endNode: GridNode): { visited: GridNode
     let visited: GridNode[] = [];
     let path: GridNode[] = [];
 
-    let queue: GridNode[] = [];
+    // Construct a queue of paths
+    let queue: GridNode[][] = [];
     startNode.isVisited = true;
-    queue.push(startNode);
+    queue.push([startNode]);
 
     while (queue.length > 0) {
-        let node: GridNode = queue[0];
+        // Grab the first path in the queue
+        path = queue.shift();
 
-        visited.push(node);
-        path.push(node);
+        // Grab the last node in the path
+        let node: GridNode = path[path.length - 1];
 
+        // Check if last node is the end node. If so, we've found the end, return.
         if (node == endNode)
             break;
 
-        queue.shift();
+        // For each node in the adjacency list of the last node in the path:
+        for (let i = 0; i < node.adjacencyList.length; i++) {
+            // Skip if it was already visited
+            if (node.adjacencyList[i].isVisited)
+                continue;
 
-        for (let i = 0; i < node.adjacencyList.length; i++)
-            if (!node.adjacencyList[i].isVisited) {
-                node.adjacencyList[i].isVisited = true;
-                queue.push(node.adjacencyList[i]);
-            }
+            // mark it visited, push to visited array
+            node.adjacencyList[i].isVisited = true;
+            visited.push(node.adjacencyList[i]);
+
+            // Create new path by appending the current node to the end of the current path
+            let newPath = path.slice();
+            newPath.push(node.adjacencyList[i]);
+            queue.push(newPath);
+        }
     }
+
+    if (path[path.length - 1] != endNode)
+        path = [startNode];
 
     return { visited, path };
 }

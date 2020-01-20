@@ -11,6 +11,7 @@ export class PathfindingNavbarComponent implements OnInit {
 
   @Input() algorithm: PathfindingAlgorithm;
   @Input() isPlaying: boolean;
+  @Input() settings: { visualizeSpeed: number };
   @Output() clearWallsEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output() resetGridEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output() visualizeEmitter: EventEmitter<boolean> = new EventEmitter();

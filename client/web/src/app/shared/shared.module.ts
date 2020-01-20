@@ -13,6 +13,7 @@ import { PathfindingMenuComponent } from './components/navbars/main-navbar/pathf
 import { PathfindingNavbarComponent } from './components/navbars/pathfinding-navbar/pathfinding-navbar.component';
 import { MainGridComponent } from './components/pathfinding/main-grid/main-grid.component';
 import { GridNodeComponent } from './components/pathfinding/grid-node/grid-node.component';
+import { VisualizeSpeedSettingComponent } from './components/settings/visualize-speed-setting/visualize-speed-setting.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GridNodeComponent } from './components/pathfinding/grid-node/grid-node.
     PathfindingMenuComponent,
     PathfindingNavbarComponent,
     MainGridComponent,
-    GridNodeComponent
+    GridNodeComponent,
+    VisualizeSpeedSettingComponent
   ],
   imports: [
     CommonModule,
