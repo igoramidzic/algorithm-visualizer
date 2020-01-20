@@ -5,6 +5,8 @@
   "author": "Igor Amidzic",
   "license": "MIT",
   "scripts": {
+    "start": "npm run serve",
+    "serve": "node dist/server.js",
     "watch-angular": "npm run start --prefix client/web",
     "build": "npm run build-ts && npm run build --prod --prefix client/web",
     "heroku-postbuild": "npm run build-ts && npm run build --prod --prefix client/web",
