@@ -1,0 +1,11 @@
+{
+  "name": "algorithm-visualizer",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Igor Amidzic",
+  "license": "MIT",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build --prod"
+  }
+}

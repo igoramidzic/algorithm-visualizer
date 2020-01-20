@@ -5,10 +5,9 @@
   "author": "Igor Amidzic",
   "license": "MIT",
   "scripts": {
-    "watch-angular": "pushd client/web && ng serve && popd",
-    "start": "pushd client/web && ng serve && popd",
-    "build": "npm run build-ts && pushd client/web && ng build --prod && popd",
-    "heroku-postbuild": "npm run build-ts && pushd client/web && ng build --prod && popd",
+    "watch-angular": "npm run start --prefix client/web",
+    "build": "npm run build-ts && npm run build --prod --prefix client/web",
+    "heroku-postbuild": "npm run build-ts && npm run build --prod --prefix client/web",
     "watch-server": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "build-ts": "tsc",
     "watch-ts": "tsc -w"
