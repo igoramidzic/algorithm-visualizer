@@ -20,7 +20,7 @@ const asyncHandler = (fn: any) => (req: Request, res: Response, next: any) => {
 };
 
 // API routes
-app.use('/', require('./api/controllers/index'))
+app.use('/api/', require('./api/controllers/index'))
 
 // Return frontend app
 if (ENVIRONMENT === 'production') {
