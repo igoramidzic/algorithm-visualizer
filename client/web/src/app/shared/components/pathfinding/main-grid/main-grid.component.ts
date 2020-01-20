@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GridNode, NodeType } from 'src/app/core/models/pathfinding/node/node';
 
 @Component({
@@ -9,6 +9,8 @@ import { GridNode, NodeType } from 'src/app/core/models/pathfinding/node/node';
 export class MainGridComponent implements OnInit {
 
   @Input() grid: GridNode[][];
+  @Input() isPlaying: boolean;
+  @Output() nodeChangeEmitter: EventEmitter<boolean> = new EventEmitter();
   mouseDownOnType: NodeType;
   fromNode: GridNode;
   toNode: GridNode;
@@ -33,15 +35,20 @@ export class MainGridComponent implements OnInit {
   }
 
   changeNodeType(): void {
+    if (this.isPlaying)
+      return;
+
     if (this.mouseDownOnType == NodeType.Default &&
       this.toNode.type == NodeType.Default) {
       this.toNode.type = NodeType.Wall;
       this.fromNodeChange(this.toNode);
+      this.nodeChangeEmitter.emit(true);
     }
     else if (this.mouseDownOnType == NodeType.Wall &&
       this.toNode.type == NodeType.Wall) {
       this.toNode.type = NodeType.Default;
       this.fromNodeChange(this.toNode);
+      this.nodeChangeEmitter.emit(true);
     }
     else if (this.mouseDownOnType == NodeType.Start &&
       this.toNode.type == NodeType.Default) {
@@ -49,6 +56,7 @@ export class MainGridComponent implements OnInit {
         this.toNode.type = NodeType.Start;
         this.fromNode.type = NodeType.Default;
         this.fromNodeChange(this.toNode);
+        this.nodeChangeEmitter.emit(true);
       }
     }
     else if (this.mouseDownOnType == NodeType.End &&
@@ -57,6 +65,7 @@ export class MainGridComponent implements OnInit {
         this.toNode.type = NodeType.End;
         this.fromNode.type = NodeType.Default;
         this.fromNodeChange(this.toNode);
+        this.nodeChangeEmitter.emit(true);
       }
     }
   }

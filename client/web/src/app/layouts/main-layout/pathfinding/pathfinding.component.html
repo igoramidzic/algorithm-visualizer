@@ -1,4 +1,5 @@
-<app-pathfinding-navbar (clearWallsEmitter)="clearWalls()" [algorithm]="algorithm"></app-pathfinding-navbar>
+<app-pathfinding-navbar (clearWallsEmitter)="clearWalls()" (resetGridEmitter)="resetGrid()"
+  (visualizeEmitter)="visualize($event)" [algorithm]="algorithm" [isPlaying]="isPlaying"></app-pathfinding-navbar>
 <div class="py-2">
-  <app-main-grid [grid]="grid"></app-main-grid>
+  <app-main-grid [grid]="grid" [isPlaying]="isPlaying" (nodeChangeEmitter)="runAlgorithmInstantly()"></app-main-grid>
 </div>

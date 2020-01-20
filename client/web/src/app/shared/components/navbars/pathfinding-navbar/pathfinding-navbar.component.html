@@ -8,16 +8,18 @@
             <app-sorting-menu></app-sorting-menu>
           </li> -->
         <li class="nav-item mr-4">
-          <button (click)="clearWalls()" class="btn btn-sm btn-primary">
+          <button [disabled]="isPlaying" (click)="resetGrid()" class="btn btn-sm btn-primary">
+            Clear Board
+          </button>
+        </li>
+        <li class="nav-item mr-4">
+          <button [disabled]="isPlaying" (click)="clearWalls()" class="btn btn-sm btn-primary">
             Clear Walls
           </button>
         </li>
         <li class="nav-item">
-          <button *ngIf="playing" (click)="pause()" class="btn btn-sm btn-danger">
-            <i class="fas fa-pause"></i>
-          </button>
-          <button *ngIf="!playing" (click)="play()" class="btn btn-sm btn-success">
-            <i class="fas fa-play"></i>
+          <button [disabled]="isPlaying" (click)="visualize()" class="btn btn-sm btn-success">
+            Visualize <i class="ml-2 fas fa-play"></i>
           </button>
         </li>
       </ul>

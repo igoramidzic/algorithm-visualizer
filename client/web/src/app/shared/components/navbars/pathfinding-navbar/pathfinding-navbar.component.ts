@@ -10,24 +10,26 @@ import { AlgorithmService } from 'src/app/services/algorithm/algorithm.service';
 export class PathfindingNavbarComponent implements OnInit {
 
   @Input() algorithm: PathfindingAlgorithm;
+  @Input() isPlaying: boolean;
   @Output() clearWallsEmitter: EventEmitter<boolean> = new EventEmitter();
-  playing: boolean;
+  @Output() resetGridEmitter: EventEmitter<boolean> = new EventEmitter();
+  @Output() visualizeEmitter: EventEmitter<boolean> = new EventEmitter();
 
   constructor(public algorithmService: AlgorithmService) { }
 
   ngOnInit() {
   }
 
-  play(): void {
-    this.playing = true;
-  }
-
-  pause(): void {
-    this.playing = false;
+  visualize(): void {
+    this.visualizeEmitter.emit(true);
   }
 
   clearWalls(): void {
     this.clearWallsEmitter.emit(true);
+  }
+
+  resetGrid(): void {
+    this.resetGridEmitter.emit(true);
   }
 
   get algorithmName(): string {
