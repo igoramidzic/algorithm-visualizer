@@ -10,7 +10,7 @@ $grid-columns: 24;
 $list-group-border-color: var(--border-color);
 $list-group-border-radius: 2px;
 $list-group-bg: var(--background);
-$border-color: var(--border-color);
+$border-color: var(--border-color) !important;
 // $grid-gutter-width: 12px;
 
 @import "../../../../node_modules/bootstrap/scss/root";
