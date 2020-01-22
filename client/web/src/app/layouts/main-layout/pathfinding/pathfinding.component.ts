@@ -197,4 +197,33 @@ export class PathfindingComponent implements OnInit {
     this.visualizeAlgorithmInstantly(algorithmResult.visited, algorithmResult.path);
     this.isReset = false;
   }
+
+  addRandomWalls(): void {
+    let algorithmResult: { visited: GridNode[], path: GridNode[] };
+
+    let timesTried = 0;
+    while (timesTried < 100) {
+      // Clear the walls to start fresh
+      this.clearWalls();
+
+      for (let y = 0; y < this.grid.length; y++)
+        for (let x = 0; x < this.grid[0].length; x++)
+          if (this.grid[y][x].type == NodeType.Default) {
+            let shouldBeWall = Math.random() >= 0.75;
+            if (shouldBeWall) this.grid[y][x].type = NodeType.Wall;
+          }
+
+      algorithmResult = this.algorithmService.runBFSAlgorithm(this.grid);
+      let goodToGo: boolean = false;
+      for (let i = 0; i < algorithmResult.path.length; i++)
+        if (algorithmResult.path[i].type == NodeType.End)
+          goodToGo = true;
+
+      if (goodToGo) {
+        this.runAlgorithmInstantly();
+        return;
+      }
+      timesTried++;
+    }
+  }
 }

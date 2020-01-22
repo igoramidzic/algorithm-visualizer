@@ -1,5 +1,6 @@
 <app-pathfinding-navbar (clearWallsEmitter)="clearWalls()" (resetGridEmitter)="resetGrid()"
-  (visualizeEmitter)="visualize($event)" [algorithm]="algorithm" [isPlaying]="isPlaying" [settings]="settings">
+  (randomWallsEmitter)="addRandomWalls()" (visualizeEmitter)="visualize($event)" [algorithm]="algorithm"
+  [isPlaying]="isPlaying" [settings]="settings">
 </app-pathfinding-navbar>
 <div class="py-2">
   <app-main-grid [grid]="grid" [isPlaying]="isPlaying" (nodeChangeEmitter)="runAlgorithmInstantly()"></app-main-grid>

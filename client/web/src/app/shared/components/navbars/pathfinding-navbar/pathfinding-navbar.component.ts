@@ -15,6 +15,7 @@ export class PathfindingNavbarComponent implements OnInit {
   @Output() clearWallsEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output() resetGridEmitter: EventEmitter<boolean> = new EventEmitter();
   @Output() visualizeEmitter: EventEmitter<boolean> = new EventEmitter();
+  @Output() randomWallsEmitter: EventEmitter<boolean> = new EventEmitter();
 
   constructor(public algorithmService: AlgorithmService) { }
 
@@ -31,6 +32,10 @@ export class PathfindingNavbarComponent implements OnInit {
 
   resetGrid(): void {
     this.resetGridEmitter.emit(true);
+  }
+
+  addRandomWalls(): void {
+    this.randomWallsEmitter.emit(true);
   }
 
   get algorithmName(): string {

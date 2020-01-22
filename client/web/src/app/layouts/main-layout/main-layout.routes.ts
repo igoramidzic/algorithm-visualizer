@@ -12,6 +12,6 @@ export const MAINLAYOUT_ROUTES: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'pathfinding/astar'
+    redirectTo: 'pathfinding/bfs'
   }
 ]
