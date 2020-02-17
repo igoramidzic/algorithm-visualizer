@@ -122,6 +122,10 @@
   @include btn-color(map-get($colors, "red"));
 }
 
+.btn-pink {
+  @include btn-color(map-get($colors, "pink"));
+}
+
 .btn-outline {
   @include btn-outline-color(var(--hint-color));
 }

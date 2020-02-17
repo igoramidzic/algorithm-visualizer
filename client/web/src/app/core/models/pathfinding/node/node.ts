@@ -1,4 +1,6 @@
 export type GridNode = {
+    xcoord: number;
+    ycoord: number;
     type: NodeType;
     visited: boolean;
     isVisited?: boolean;
@@ -8,8 +10,10 @@ export type GridNode = {
     top?: GridNode;
     left?: GridNode;
     right?: GridNode;
-    distance?: number;
     adjacencyList?: GridNode[];
+    distanceTraveled?: number;
+    estimatedDistanceFromEnd?: number;
+    cameFromNode?: GridNode;
 }
 
 export enum NodeType {

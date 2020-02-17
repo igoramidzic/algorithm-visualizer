@@ -64,7 +64,7 @@ export class PathfindingComponent implements OnInit {
     for (let y = 0; y < gridSizes.y; y++) {
       this.grid.push([]);
       for (let x = 0; x < gridSizes.x; x++) {
-        node = this.createNode(this.determineNodeType(gridSizes, x, y));
+        node = this.createNode(x, y, this.determineNodeType(gridSizes, x, y));
         this.grid[y][x] = node;
       }
     }
@@ -76,6 +76,9 @@ export class PathfindingComponent implements OnInit {
         this.grid[y][x].isPath = false;
         this.grid[y][x].visited = false;
         this.grid[y][x].isVisited = false;
+        this.grid[y][x].cameFromNode = null;
+        this.grid[y][x].distanceTraveled = null;
+        this.grid[y][x].estimatedDistanceFromEnd = null;
       }
     }
     this.isReset = true;
@@ -85,8 +88,8 @@ export class PathfindingComponent implements OnInit {
     return { x: this.gridX, y: this.gridY };
   }
 
-  createNode(type: NodeType): GridNode {
-    return { type, visited: false, isPath: false }
+  createNode(xcoord: number, ycoord: number, type: NodeType): GridNode {
+    return { xcoord, ycoord, type, visited: false, isPath: false };
   }
 
   determineNodeType(gridSizes: { x: number, y: number }, x, y): NodeType {
@@ -180,6 +183,7 @@ export class PathfindingComponent implements OnInit {
 
     switch (this.algorithm) {
       case PathfindingAlgorithm.Astar:
+        algorithmResult = this.algorithmService.runAStarAlgorithm(this.grid);
         break;
       case PathfindingAlgorithm.BFS:
         algorithmResult = this.algorithmService.runBFSAlgorithm(this.grid);

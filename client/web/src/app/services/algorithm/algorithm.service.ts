@@ -4,6 +4,7 @@ import { GridNode, NodeType } from 'src/app/core/models/pathfinding/node/node';
 import { dijkstras } from 'src/app/core/algorithms/dijkstras';
 import { dfs } from 'src/app/core/algorithms/dfs';
 import { bfs } from 'src/app/core/algorithms/bfs';
+import { astar } from 'src/app/core/algorithms/astar';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,7 @@ export class AlgorithmService {
 
   runAStarAlgorithm(grid: GridNode[][]): { visited: GridNode[], path: GridNode[] } {
     this.fillAdjacencyListForNodes(grid);
-    return { visited: [], path: [] };
+    return astar(this.getStart(grid), this.getEnd(grid));
   }
 
   private fillAdjacencyListForNodes(grid: GridNode[][]): GridNode[] {
