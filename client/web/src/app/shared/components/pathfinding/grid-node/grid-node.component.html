@@ -1,6 +1,6 @@
 <div class="node"
   [ngClass]="{'wall': node.type == NodeType.Wall, 'start': node.type == NodeType.Start, 'end': node.type == NodeType.End, 'visited': node.visited && !(node.isPath || node.type == NodeType.Start || node.type == NodeType.End), 'isPath': node.isPath && !(node.type == NodeType.Start || node.type == NodeType.End) }"
   (mousedown)="mouseDown()" (mouseup)="mouseUp()" (mouseenter)="mouseEnter();">
-  <span style="font-size: 8px;">{{ node.estimatedDistanceFromEnd | number : '1.2-2' }}</span>
-  <span style="font-size: 8px; display: block; line-height:0.2">{{ node.distanceTraveled }}</span>
+  <!-- <span style="font-size: 8px;">{{ node.estimatedDistanceFromEnd | number : '1.2-2' }}</span>
+  <span style="font-size: 8px; display: block; line-height:0.2">{{ node.distanceTraveled }}</span> -->
 </div>
